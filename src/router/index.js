@@ -3,18 +3,26 @@ import VueRouter from 'vue-router'
 import Friends from "../components/Friends";
 import News from "../components/News";
 import Messages from "../components/Messages";
+import Login from "../components/Login";
+import Register from "../components/Messages";
+import Users from "../components/Users";
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        redirect: "/friends"
+        redirect: "/login"
     },
     {
         path: '/news',
         name: 'news',
         component: News
+    },
+    {
+        path: '/users',
+        name: 'users',
+        component: Users
     },
     {
         path: '/friends',
@@ -25,6 +33,16 @@ const routes = [
         path: '/messages',
         name: 'messages',
         component: Messages
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
     },
 ]
 

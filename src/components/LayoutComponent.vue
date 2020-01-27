@@ -52,10 +52,9 @@
 
         <v-content class="pa-0">
             <v-container
-                    class="fill-height"
                     fluid
             >
-                <v-row class="fill-height">
+                <v-row>
                     <v-col class="shrink col-12">
                         <router-view/>
                     </v-col>
@@ -92,8 +91,8 @@
             source: String,
         },
         data: () => ({
-            drawer: null,
-            drawerRight: null,
+            drawer: false,
+            drawerRight: false,
             right: false,
             left: false,
             routes: [
@@ -111,6 +110,11 @@
                     icon: "mdi-newspaper-variant",
                     link: "/news",
                     title: "Новости",
+                },
+                {
+                    icon: "mdi-account",
+                    link: "/users",
+                    title: "Пользователи",
                 }
             ],
         }),

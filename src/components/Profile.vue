@@ -4,13 +4,22 @@
             class="mx-auto"
             style="box-shadow: none;"
     >
+
+        <v-btn icon class="mr-4 mt-1"
+               color="primary"
+               border="primary"
+               style="position: absolute;z-index: 1000;right: 0;border: 1px solid blue;"
+               @click.stop="editing = true">
+            <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+
         <v-img
                 @click="downloadFile"
                 src="https://cdn.vuetifyjs.com/images/lists/ali.png"
                 height="300px"
                 dark
         >
-            <v-row class="fill-height">
+            <v-row>
                 <v-card-title class="white--text pl-12 pt-12">
                     <div class="display-1 pl-12 pt-12">Ali Conners</div>
                 </v-card-title>
@@ -33,19 +42,6 @@
                 </v-list-item-icon>
             </v-list-item>
 
-            <v-list-item @click="">
-                <v-list-item-action></v-list-item-action>
-
-                <v-list-item-content>
-                    <v-list-item-title>(323) 555-6789</v-list-item-title>
-                    <v-list-item-subtitle>Work</v-list-item-subtitle>
-                </v-list-item-content>
-
-                <v-list-item-icon>
-                    <v-icon>mdi-message-text</v-icon>
-                </v-list-item-icon>
-            </v-list-item>
-
             <v-divider inset></v-divider>
 
             <v-list-item @click="">
@@ -56,15 +52,6 @@
                 <v-list-item-content>
                     <v-list-item-title>aliconnors@example.com</v-list-item-title>
                     <v-list-item-subtitle>Personal</v-list-item-subtitle>
-                </v-list-item-content>
-            </v-list-item>
-
-            <v-list-item @click="">
-                <v-list-item-action></v-list-item-action>
-
-                <v-list-item-content>
-                    <v-list-item-title>ali_connors@example.com</v-list-item-title>
-                    <v-list-item-subtitle>Work</v-list-item-subtitle>
                 </v-list-item-content>
             </v-list-item>
 
@@ -81,25 +68,11 @@
                 </v-list-item-content>
             </v-list-item>
         </v-list>
-        <v-card-actions>
 
-            <v-btn dark icon class="mr-4"
-                   color="orange"
-                   @click="editing = true">
-                <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-
-            <v-btn dark icon
-                   color="orange"
-            >
-                <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-        </v-card-actions>
         <v-navigation-drawer
                 style="width: 350px;"
                 v-model="editing"
                 app
-                clipped
                 right
                 flat
         >
@@ -110,6 +83,13 @@
 
         <v-file-input class="d-none" id="file" multiple label="File input"></v-file-input>
 
+
+        <v-card-actions class="d-flex justify-end">
+            <v-btn color="orange" style="color: white;"
+                   @click="logout">
+                Выйти
+            </v-btn>
+        </v-card-actions>
     </v-card>
 </template>
 
@@ -136,6 +116,12 @@
             downloadFile() {
                 const file = document.getElementById("file")
                 file.click()
+            },
+            logout() {
+                axios.post("http://localhost:8080/logout")
+                    .then(res => {
+                        console.log(res, "res")
+                    })
             }
         },
     }

@@ -38,22 +38,20 @@
         </v-app-bar>
 
         <v-content>
-            <LayoutComponent/>
-        </v-content>
 
+            <LayoutComponent/>
+
+        </v-content>
     </v-app>
 </template>
 
 <script>
-    import LayoutComponent from './components/LayoutComponent';
+
+    import LayoutComponent from "./components/LayoutComponent";
 
     export default {
         name: 'App',
-
-        components: {
-            LayoutComponent,
-        },
-
+        components: {LayoutComponent},
         data: () => ({
             //
         }),
