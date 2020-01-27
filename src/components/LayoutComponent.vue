@@ -109,16 +109,14 @@
                 },
                 {
                     icon: "mdi-newspaper-variant",
-                    link: "/friends",
+                    link: "/news",
                     title: "Новости",
                 }
             ],
         }),
         methods: {
             changeRoute(link) {
-                this.$router.push({
-                    path: link
-                })
+                this.$router.push(link)
                 this.left = false
             },
         }

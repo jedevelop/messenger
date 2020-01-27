@@ -5,6 +5,7 @@
             style="box-shadow: none;"
     >
         <v-img
+                @click="downloadFile"
                 src="https://cdn.vuetifyjs.com/images/lists/ali.png"
                 height="300px"
                 dark
@@ -81,24 +82,47 @@
             </v-list-item>
         </v-list>
         <v-card-actions>
-            <v-btn dark icon color="primary">
 
-                <v-btn dark icon class="mr-4">
-                    <v-icon>mdi-pencil</v-icon>
-                </v-btn>
+            <v-btn dark icon class="mr-4"
+                   color="orange"
+                   @click="editing = true">
+                <v-icon>mdi-pencil</v-icon>
+            </v-btn>
 
-                <v-btn dark icon>
-                    <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
+            <v-btn dark icon
+                   color="orange"
+            >
+                <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
         </v-card-actions>
+        <v-navigation-drawer
+                style="width: 350px;"
+                v-model="editing"
+                app
+                clipped
+                right
+                flat
+        >
+
+            <ProfileForm/>
+
+        </v-navigation-drawer>
+
+        <v-file-input class="d-none" id="file" multiple label="File input"></v-file-input>
+
     </v-card>
 </template>
 
 <script>
+    import ProfileForm from "../components/ProfileForm"
+
     export default {
         name: "Profile",
+        components: {
+            ProfileForm
+        },
         data: () => ({
+            editing: false,
             loading: false,
             selection: 1,
         }),
@@ -109,6 +133,10 @@
 
                 setTimeout(() => (this.loading = false), 2000)
             },
+            downloadFile() {
+                const file = document.getElementById("file")
+                file.click()
+            }
         },
     }
 </script>
