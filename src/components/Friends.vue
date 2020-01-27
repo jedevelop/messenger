@@ -8,8 +8,7 @@
                 dark
                 color="pink"
         >
-
-            <v-text-field :rules="rules" class="mt-2"></v-text-field>
+            <v-text-field class="mt-2"></v-text-field>
 
             <v-btn icon>
                 <v-icon>mdi-magnify</v-icon>

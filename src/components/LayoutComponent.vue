@@ -30,9 +30,9 @@
 
             <v-list dense
                     v-for="(route, index) in routes"
-                    :key="index"
-                    @click="changeRoute(route.link)">
-                <v-list-item>
+                    :key="index">
+                <v-list-item
+                        @click.stop="changeRoute(route.link)">
                     <v-list-item-action>
                         <v-icon>{{route.icon}}</v-icon>
                     </v-list-item-action>
@@ -116,7 +116,9 @@
         }),
         methods: {
             changeRoute(link) {
-                this.$router.push(link)
+                this.$router.push({
+                    path: link
+                })
                 this.left = false
             },
         }

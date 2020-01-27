@@ -8,6 +8,10 @@ Vue.use(VueRouter)
 
 const routes = [
     {
+        path: '/',
+        redirect: "/friends"
+    },
+    {
         path: '/news',
         name: 'news',
         component: News

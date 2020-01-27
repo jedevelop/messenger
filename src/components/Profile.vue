@@ -1,68 +1,95 @@
 <template>
     <v-card
-            :loading="loading"
+            max-width="375"
             class="mx-auto"
-            max-width="374"
-            style="box-shadow: none !important;"
+            style="box-shadow: none;"
     >
         <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-        ></v-img>
-
-        <v-card-title>Cafe Badilico</v-card-title>
-
-        <v-card-text>
-            <v-row
-                    align="center"
-                    class="mx-0"
-            >
-                <v-rating
-                        :value="4.5"
-                        color="amber"
-                        dense
-                        half-increments
-                        readonly
-                        size="14"
-                ></v-rating>
-
-                <div class="grey--text ml-4">4.5 (413)</div>
+                src="https://cdn.vuetifyjs.com/images/lists/ali.png"
+                height="300px"
+                dark
+        >
+            <v-row class="fill-height">
+                <v-card-title class="white--text pl-12 pt-12">
+                    <div class="display-1 pl-12 pt-12">Ali Conners</div>
+                </v-card-title>
             </v-row>
+        </v-img>
 
-            <div class="my-4 subtitle-1 black--text">
-                $ • Italian, Cafe
-            </div>
+        <v-list two-line>
+            <v-list-item @click="">
+                <v-list-item-icon>
+                    <v-icon color="indigo">mdi-phone</v-icon>
+                </v-list-item-icon>
 
-            <div>Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.</div>
-        </v-card-text>
+                <v-list-item-content>
+                    <v-list-item-title>(650) 555-1234</v-list-item-title>
+                    <v-list-item-subtitle>Mobile</v-list-item-subtitle>
+                </v-list-item-content>
 
-        <v-divider class="mx-4"></v-divider>
+                <v-list-item-icon>
+                    <v-icon>mdi-message-text</v-icon>
+                </v-list-item-icon>
+            </v-list-item>
 
-        <v-card-title>Tonight's availability</v-card-title>
+            <v-list-item @click="">
+                <v-list-item-action></v-list-item-action>
 
-        <v-card-text>
-            <v-chip-group
-                    v-model="selection"
-                    active-class="deep-purple accent-4 white--text"
-                    column
-            >
-                <v-chip>5:30PM</v-chip>
+                <v-list-item-content>
+                    <v-list-item-title>(323) 555-6789</v-list-item-title>
+                    <v-list-item-subtitle>Work</v-list-item-subtitle>
+                </v-list-item-content>
 
-                <v-chip>7:30PM</v-chip>
+                <v-list-item-icon>
+                    <v-icon>mdi-message-text</v-icon>
+                </v-list-item-icon>
+            </v-list-item>
 
-                <v-chip>8:00PM</v-chip>
+            <v-divider inset></v-divider>
 
-                <v-chip>9:00PM</v-chip>
-            </v-chip-group>
-        </v-card-text>
+            <v-list-item @click="">
+                <v-list-item-icon>
+                    <v-icon color="indigo">mdi-email</v-icon>
+                </v-list-item-icon>
 
+                <v-list-item-content>
+                    <v-list-item-title>aliconnors@example.com</v-list-item-title>
+                    <v-list-item-subtitle>Personal</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item @click="">
+                <v-list-item-action></v-list-item-action>
+
+                <v-list-item-content>
+                    <v-list-item-title>ali_connors@example.com</v-list-item-title>
+                    <v-list-item-subtitle>Work</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+
+            <v-divider inset></v-divider>
+
+            <v-list-item @click="">
+                <v-list-item-icon>
+                    <v-icon color="indigo">mdi-map-marker</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                    <v-list-item-title>1400 Main Street</v-list-item-title>
+                    <v-list-item-subtitle>Orlando, FL 79938</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+        </v-list>
         <v-card-actions>
-            <v-btn
-                    color="deep-purple accent-4"
-                    text
-                    @click="reserve"
-            >
-                Reserve
+            <v-btn dark icon color="primary">
+
+                <v-btn dark icon class="mr-4">
+                    <v-icon>mdi-pencil</v-icon>
+                </v-btn>
+
+                <v-btn dark icon>
+                    <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
             </v-btn>
         </v-card-actions>
     </v-card>
