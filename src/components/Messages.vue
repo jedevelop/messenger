@@ -1,5 +1,5 @@
 <template>
-    $END$
+    <div>Messages</div>
 </template>
 
 <script>
